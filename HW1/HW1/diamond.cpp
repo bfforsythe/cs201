@@ -30,4 +30,7 @@ int main()
         }
         cout << endl;
     }
+
+    if (dimIn <= 0)
+        cout << "Woah buster brown, you can't have a negative diamond";
 }
