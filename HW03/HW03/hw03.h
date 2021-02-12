@@ -4,18 +4,29 @@
 #include <string>
 
 using namespace std;
-int n;
+
+int i;
 
 int box(int boxSize, string boxWords) {
 
-	//for (boxSize = 0; boxSize <= boxWords.length() + n + 1; boxSize++) {
-		//cout << "*";
-		for (boxSize = 0; boxSize < boxWords.length() - 1; boxSize++) {
-			cout << endl;
+	for ( i = 0; i < 10 + boxSize; i++) {
+		cout << "*";
+		}
+	for (int j = 0; j < 12; j++) {
+		if (j == 1 || j == 12) {
 			cout << "*";
+		}
+		else {
+			cout << " ";
+		}
+		cout << endl;
 	}
-	boxSize = 0;
-	cout << endl;
 
-	return(1);
+
+	for (int i = 0; i < 10 + boxSize; i++) {
+		cout << "*";
+	}
+
+
+	return(0);
 }
