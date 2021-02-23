@@ -6,7 +6,7 @@
 using namespace std;
 string str;
 string i;
-
+int j;
 
 
 // Functionality for Sorting
@@ -15,7 +15,7 @@ void AnalyzeTokens() {
 
 	vector<string> token;
 	for (int k = 0; k <= token.size(); k++) {
-		if (j == true) {
+		if (j) {
 			cout << "[integer]";
 			k++;
 		}
