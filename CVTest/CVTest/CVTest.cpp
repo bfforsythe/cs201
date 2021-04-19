@@ -1,17 +1,30 @@
-#include <opencv2/core/core.hpp>
+#include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
 #include <iostream>
 
-using namespace cv;
-using namespace std;
 
-int main()
-{
-	Mat image = Mat::zeros(300, 600, CV_8UC3);
-	circle(image, Point(250, 150), 100, Scalar(0, 255, 128), -100);
-	circle(image, Point(350, 150), 100, Scalar(255, 255, 255), -100);
-	imshow("Display Window", image);
-	waitKey(0);
-	return 0;
+using namespace cv;
+
+void main() {
+
+    cv::Mat img = cv::imread("C:\\Users\\Forsy\\Pictures\\download.jpg", IMREAD_UNCHANGED);
+    cv::imshow("img", img);
+
+
+    for (int j = 0; j < img.rows; j++)
+    {
+        for (int i = 0; i < img.cols; i++)
+        {
+            if (img.at<cv::Vec3b>(i, j)[0] == 0 || img.at<cv::Vec3b>(i, j)[1] == 0 || img.at<cv::Vec3b>(i, j)[2] == 0)
+           
+                 img.at<cv::Vec3b>(i, j)[0] = 255; // change it to white
+                 img.at<cv::Vec3b>(i, j)[1] = 255;
+                 img.at<cv::Vec3b>(i, j)[2] = 255;
+           
+        }
+    }
+    cv::imshow("After", img);
+    cv::waitKey();
 }
