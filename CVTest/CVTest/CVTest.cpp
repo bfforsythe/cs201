@@ -3,6 +3,7 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
 #include <iostream>
+#include <stdlib.h>
 
 
 using namespace cv;
@@ -11,18 +12,22 @@ void main() {
 
     cv::Mat img = cv::imread("C:\\Users\\Forsy\\Pictures\\download.jpg", IMREAD_UNCHANGED);
     cv::imshow("img", img);
+    cv::waitKey(2000);
+    destroyWindow("img");
 
 
     for (int j = 0; j < img.rows; j++)
     {
         for (int i = 0; i < img.cols; i++)
         {
-            if (img.at<cv::Vec3b>(i, j)[0] == 0 || img.at<cv::Vec3b>(i, j)[1] == 0 || img.at<cv::Vec3b>(i, j)[2] == 0)
+            Vec3b color = img.at<Vec3b>(Point(i, j));
            
-                 img.at<cv::Vec3b>(i, j)[0] = 255; // change it to white
-                 img.at<cv::Vec3b>(i, j)[1] = 255;
-                 img.at<cv::Vec3b>(i, j)[2] = 255;
-           
+            color[0] = rand() % 256;
+            color[1] = rand() % 256;
+            color[2] = rand() % 256;
+
+            img.at<Vec3b>(Point(i, j)) = color;
+            
         }
     }
     cv::imshow("After", img);
