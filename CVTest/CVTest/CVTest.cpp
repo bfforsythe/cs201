@@ -4,6 +4,8 @@
 #include <opencv2/imgproc.hpp>
 #include <iostream>
 #include <stdlib.h>
+#include <Windows.h>
+#include <mmsystem.h>
 
 
 using namespace cv;
@@ -30,6 +32,7 @@ void main() {
             
         }
     }
+    PlaySound(TEXT("C:\\Users\\Forsy\\Downloads\\bonk_AgRFvsD.wav"), NULL, SND_FILENAME);
     cv::imshow("After", img);
     cv::waitKey();
 }
