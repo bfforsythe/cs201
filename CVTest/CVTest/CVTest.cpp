@@ -1,3 +1,12 @@
+//   Brandon Forsythe
+//      4/ 2/ 21
+//  OpenCV proof-of-concept
+
+
+
+
+
+
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgcodecs.hpp>
@@ -16,9 +25,8 @@ int blankspace = 225;
 void main() {
 
     cv::Mat img = cv::imread("C:\\Users\\Forsy\\Pictures\\download.jpg", IMREAD_UNCHANGED);
-    cv::imshow("img", img);
+    cv::imshow("Before", img);
     cv::waitKey(2000);
-    destroyWindow("img");
 
     randomGen();
     int mainColor = castVal.at(0);
